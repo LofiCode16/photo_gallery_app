@@ -5,3 +5,5 @@ PhotoGallery es una app pensada para aquellos amantes de la fotografía que quie
 ### Esta app aún está en desarrollo
 
 Pero puedes hacer seguimiento de su avance desde [aqui!](https://myphotogalleryapp.herokuapp.com/)
+
+O también puedes ver el listado de tareas pendientes e implementadas desde [Trello](https://trello.com/b/36cjHHJJ/photogallery)
