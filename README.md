@@ -1,24 +1,7 @@
-# README
+# Photo Gallery App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+PhotoGallery es una app pensada para aquellos amantes de la fotografía que quieran compratir sus fotos con amigos en alta calidad.
 
-Things you may want to cover:
+### Esta app aún está en desarrollo
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Pero puedes hacer seguimiento de su avance desde [aqui!](https://myphotogalleryapp.herokuapp.com/)
