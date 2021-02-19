@@ -17,7 +17,7 @@ Devise.setup do |config|
   # config.secret_key = '89e5b24ddadae331c38aa6461339155ee63a412ced14571a5eabed1b0e921fb79018842d57e70bf38b6aa1526acd040f771cc7d2880a7320f62f966b358f3e9f'
 
   # ==> Controller configuration
-  # Configure the parent class to the devise controllers.
+  # Configure parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
 
   # ==> Mailer Configuration
@@ -244,7 +244,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
