@@ -278,6 +278,10 @@ Devise.setup do |config|
     display: 'popup',
     token_params: {parse: :json}
 
+  config.omniauth :google_oauth2,
+    ENV['PHOTO_GALLERY_APP_GOOGLE_ID'],
+    ENV['PHOTO_GALLERY_APP_GOOGLE_SECRET']
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
