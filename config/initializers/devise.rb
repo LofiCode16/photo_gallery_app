@@ -274,7 +274,7 @@ Devise.setup do |config|
   config.omniauth :facebook, 
     ENV['PHOTO_GALLERY_APP_FACEBOOK_ID'], 
     ENV['PHOTO_GALLERY_APP_FACEBOOK_SECRET'], 
-    scope: 'email,name,profile_pic',
+    scope: 'email',
     display: 'popup',
     token_params: {parse: :json}
 

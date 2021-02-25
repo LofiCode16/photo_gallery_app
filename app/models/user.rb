@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  require 'open-uri'
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -14,4 +15,22 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
   
+  @@mail_number = 0
+
+  def self.from_omniauth(auth)
+
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+
+      url_image = URI(auth.info.image)
+      image = URI.open(url_image)
+
+      user.email = "example#{@@mail_number}@mail.com" unless auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.name = auth.info.name
+      user.profile_image.attach(io: image, filename: 'profile_pic.jpg') 
+      
+    end
+
+  end
+
 end
