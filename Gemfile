@@ -16,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 gem 'devise'
+gem 'omniauth'
 gem 'omniauth-facebook', '~> 1.0.0'
 gem 'omniauth-google-oauth2'
 # gem 'omniauth-rails_csrf_protection'

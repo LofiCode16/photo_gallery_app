@@ -280,7 +280,10 @@ Devise.setup do |config|
 
   config.omniauth :google_oauth2,
     ENV['PHOTO_GALLERY_APP_GOOGLE_ID'],
-    ENV['PHOTO_GALLERY_APP_GOOGLE_SECRET']
+    ENV['PHOTO_GALLERY_APP_GOOGLE_SECRET'],
+    scope: 'userinfo.email, userinfo.profile',
+    # image_aspect_ratio: 'square',
+    prompt: 'select_account'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
