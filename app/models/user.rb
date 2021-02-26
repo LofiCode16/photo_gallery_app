@@ -27,7 +27,7 @@ class User < ApplicationRecord
       if auth.info.email
         user.email = auth.info.email
       else
-        user.mail = "example#{@@mail_number}@mail.com"
+        user.email = "example#{@@mail_number}@mail.com"
       end
 
       user.password = Devise.friendly_token[0,20]
