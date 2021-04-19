@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
   validates :name, presence: true
+  validates :name, uniqueness: true
   validates :name, length: {minimum: 3, maximum: 50}
   validates :name, format: {with: /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]*$/, multiline: true}
   validates :description, length: {maximum: 300}

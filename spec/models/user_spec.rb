@@ -36,6 +36,19 @@ RSpec.describe User, type: :model do
                 expect(subject).to_not be_valid
             end
 
+            it 'can be unique' do
+                sub1 = subject.dup
+                sub2 = subject.dup
+
+                sub1.name = 'user two'
+                sub1.email = 'example1@mail.com'
+                sub1.save!
+                sub2.name = 'user two'
+                sub2.email = 'example2@mail.com'
+
+                expect(sub2.save).to_not be_truthy
+            end
+
         end
 
         context 'Description' do
