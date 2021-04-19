@@ -13,10 +13,23 @@
 
   <nav>
     <% if user_signed_in? %>
-      <%= link_to  "logout", destroy_user_session_path %>
+      <%= link_to  "logout", destroy_user_session_path, method: :delete %>
       <%= link_to  "edit profile", edit_user_registration_path %>
+    
+      <div>
+        <% if current_user.provider == 'facebook' && current_user.email.include?('example') %>
+          <p>Este es tu mail? Si no es asi, puedes cambiarlo aqui, de lo contrario no podremos informarte de nada</p>
+
+          <%= form_with(model: current_user, url: user_registration_path, local: true) do |f| %>
+            <%= f.email_field :email %>
+            <%= f.submit  %>
+          <% end %>
+
+        <% end %>
+      </div>
     <% end %>
   </nav>
+
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
