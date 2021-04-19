@@ -1,0 +1,6 @@
+class Photo < ApplicationRecord
+  belongs_to :user
+  has_one_attached :image
+
+  validates :image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg'], size: { less_than: 5120.kilobytes }
+end
