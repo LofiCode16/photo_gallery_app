@@ -2,6 +2,10 @@ class User < ApplicationRecord
   require 'open-uri'
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_one_attached :profile_image
+  has_many :photos
+  has_many :likes
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
@@ -14,9 +18,6 @@ class User < ApplicationRecord
   validates :description, format: {with: /^((?!.*http.*).)*$/, multiline: true}
   validates :profile_image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg'], size: {less_than: 300.kilobytes}
 
-  has_one_attached :profile_image
-  has_many :photos
-  
   @@mail_number = 0
 
   def self.from_omniauth(auth)
@@ -39,24 +40,5 @@ class User < ApplicationRecord
     end
 
   end
-
-  # def self.from_google(auth)
-
-  #   url_image = URI(auth.info.image)
-  #   image = URI.open(url_image)
-
-  #   @user = User.new(
-  #     uid: auth.uid, 
-  #     provider: auth.provider,
-  #     name: auth.info.name
-  #   )
-
-  #   @user.profile_image.attach(io: image, filename: 'profile_pic.jpg')
-  #   @user.password = Devise.friendly_token[0,20]
-
-  #   byebug
-  #   create_with(@user.attributes).find_or_create_by!(email: auth.info.email)
-
-  # end
 
 end
