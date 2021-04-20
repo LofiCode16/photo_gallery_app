@@ -15,6 +15,7 @@ class User < ApplicationRecord
   validates :profile_image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg'], size: {less_than: 300.kilobytes}
 
   has_one_attached :profile_image
+  has_many :photos
   
   @@mail_number = 0
 

@@ -13,6 +13,7 @@
 
   <nav>
     <% if user_signed_in? %>
+      <span>Bienvenido <%= current_user.name %></span>
       <%= link_to  "logout", destroy_user_session_path, method: :delete %>
       <%= link_to  "edit profile", edit_user_registration_path %>
     
@@ -27,6 +28,9 @@
 
         <% end %>
       </div>
+
+    <% else %>
+      <%= link_to  "iniciar sesion", new_user_session_path %>
     <% end %>
   </nav>
 

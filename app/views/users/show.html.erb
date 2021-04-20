@@ -3,3 +3,15 @@
 <%= @user.name %>
 <%= image_tag @user.profile_image %>
 <%= @user.description %>
+
+<h2>publicaciones (<%= @user.photos.count %>)</h2>
+
+<% @user.photos.each do |photo| %>
+    <div>
+        <%= image_tag photo.user.profile_image %>
+        <%= link_to photo.user.name, show_user_profile_path(photo.user.name) %> <br>
+        <%= photo.location %> <br>
+        <%= image_tag photo.image, size: '400x200' %><br>
+        <%= photo.description %>
+    </div>
+<% end %>

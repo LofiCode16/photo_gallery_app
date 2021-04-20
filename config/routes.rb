@@ -5,8 +5,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   
-  get 'home/index'
   get 'profiles/:name', to: 'users#show', as: 'show_user_profile'
 
-  root 'home#index'
+  root 'photos#index'
 end
