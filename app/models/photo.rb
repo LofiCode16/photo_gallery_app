@@ -5,5 +5,5 @@ class Photo < ApplicationRecord
 
   validates :image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg'], size: { less_than: 5120.kilobytes }
 
-  scope :random, -> (cant) { all.includes(:user).with_attached_image.shuffle[0...cant] }
+  scope :random, -> (cant) { all.includes(:user, :likes).with_attached_image.shuffle[0...cant] }
 end

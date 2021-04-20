@@ -20,6 +20,14 @@ class User < ApplicationRecord
 
   @@mail_number = 0
 
+  def my_likes 
+    self.likes.map { |like| like.photo}
+  end
+
+  def liked?(photo)
+    self.my_likes.include? photo
+  end
+
   def self.from_omniauth(auth)
 
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

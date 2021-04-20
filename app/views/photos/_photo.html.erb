@@ -2,8 +2,15 @@
     <%= image_tag photo.user.profile_image %>
     <%= link_to photo.user.name, show_user_profile_path(photo.user.name) %> <br>
     <%= photo.location %> <br>
-    <%= image_tag photo.image, size: '400x200' %><br>
+    <%= image_tag photo.image.variant(resize: '400x200') %><br>
     <%= photo.description %>
-    <p>likes: no definido</p>
+    <p>likes: <%= photo.likes.length %></p>
+
+    <% if current_user.liked? photo %>
+        <%= link_to  "unlike", remove_like_path(photo_id: photo.id), method: :delete %>
+    <% else %>
+        <%= link_to  "like", add_like_path(photo_id: photo.id), method: :post %>
+    <% end %>
+
     <p>comments: no definido</p>
 </div>

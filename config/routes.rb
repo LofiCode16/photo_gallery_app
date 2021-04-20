@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   }
   
   get 'profiles/:name', to: 'users#show', as: 'show_user_profile'
+  post 'like', to: 'likes#create', as: 'add_like'
+  delete 'unlike', to: 'likes#destroy', as: 'remove_like'
 
   root 'photos#index'
 end
