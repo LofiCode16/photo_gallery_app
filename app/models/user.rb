@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_one_attached :profile_image
   has_many :photos
   has_many :likes
+  has_many :follows
+  belongs_to :follow, class_name: "Follow", foreign_key: "follow_id"
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
