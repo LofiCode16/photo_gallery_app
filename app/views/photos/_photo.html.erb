@@ -1,6 +1,17 @@
 <div>
     <%= image_tag photo.user.profile_image %>
-    <%= link_to photo.user.name, show_user_profile_path(photo.user.name) %> <br>
+    <%= link_to photo.user.name, show_user_profile_path(photo.user.name) %> 
+
+    <% unless photo.user == current_user %>
+    
+        <% if current_user.follow? photo.user %>
+            <span><%= link_to  "dejar de seguir", unfollow_path(follow_id: photo.user.id), method: :delete %></span>
+        <% else %>
+            <span><%= link_to  "seguir", follow_path(follow_id: photo.user.id), method: :post %></span>
+        <% end %>
+
+    <% end %>
+    <br>
     <%= photo.location %> <br>
     <%= image_tag photo.image.variant(resize: '400x200') %><br>
     <%= photo.description %>
