@@ -1,8 +1,14 @@
 <h1>perfil de usuario</h1>
 
-<%= @user.name %>
-<%= image_tag @user.profile_image %>
-<%= @user.description %>
+<span>Seguidores: <%= @user.followers.count %></span>
+<span>Seguidos: <%= @user.my_follows.count %></span>
+
+
+<div>
+    <%= @user.name %>
+    <%= image_tag @user.profile_image %>
+    <%= @user.description %>
+</div>
 
 <h2>publicaciones (<%= @user.photos.count %>)</h2>
 

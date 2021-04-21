@@ -6,7 +6,6 @@ class User < ApplicationRecord
   has_many :photos
   has_many :likes
   has_many :follows
-  belongs_to :follow, class_name: "Follow", foreign_key: "follow_id"
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
@@ -28,6 +27,20 @@ class User < ApplicationRecord
 
   def liked?(photo)
     self.my_likes.include? photo
+  end
+
+  def my_follows
+    self.follows.map { |follow| User.find(follow.follow_id)}
+  end
+
+  def followers
+    follows = Follow.where(follow_id: self.id)
+    
+    follows.map { |follow| User.find(follow.user_id) }
+  end
+
+  def follow?(user)
+    self.my_follows.include? user
   end
 
   def self.from_omniauth(auth)
