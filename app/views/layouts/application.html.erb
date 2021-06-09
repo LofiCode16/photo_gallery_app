@@ -12,6 +12,8 @@
   <body>
 
   <nav>
+    <%= link_to  "home", root_path %>
+
     <% if user_signed_in? %>
       <span>Bienvenido <%= current_user.name %></span>
       <%= link_to  "mi perfil", show_user_profile_path(current_user.name) %>

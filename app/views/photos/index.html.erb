@@ -1,8 +1,16 @@
 <% if user_signed_in? %>
-    <h1>Estas son todas las fotos</h1>
+    <% if current_user.my_follows.length < 1 %>
+        <h1>Estas son 10 fotos random</h1>
 
-    <% @photos.each do |photo| %>
-        <%= render  "photo", photo: photo %>
+        <% @photos.each do |photo| %>
+            <%= render  "photo", photo: photo %>
+        <% end %>
+    <% else %>
+        <h1>Estas son las ultimas 10 fotos tuyas y de tus amigos</h1>
+
+        <% @photos.each do |photo| %>
+            <%= render  "photo", photo: photo %>
+        <% end %>
     <% end %>
 <% else %>
     <h1>Estos son los mejores fotografos</h1>
