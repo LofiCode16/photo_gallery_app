@@ -11,8 +11,8 @@ amazon:
   service: S3
   access_key_id: <%= ENV['PHOTO_GALLERY_APP_AWS_ACCESS_KEY_ID'] %>
   secret_access_key: <%= ENV['PHOTO_GALLERY_APP_AWS_SECRET_ACCESS_KEY'] %>
-  region: us-east-1
-  bucket: photogallerybuckets3
+  region: <%= ENV['PHOTO_GALLERY_APP_AWS_REGION'] %>
+  bucket: <%= ENV['PHOTO_GALLERY_APP_AWS_BUCKET'] %>
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
